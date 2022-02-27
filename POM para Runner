@@ -1,0 +1,44 @@
+package pom;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RunnerPara {
+public static void main(String[] args) throws InterruptedException, EncryptedDocumentException, IOException {
+	System.setProperty("webdriver.chrome.driver","D:\\suraj chorghe\\programs\\chromedriver_win32\\chromedriver.exe");
+	WebDriver driver =new ChromeDriver();
+	driver.get("https://www.facebook.com/");
+	driver.findElement(By.xpath("(//a[@role=\"button\"])[2]")).click();
+	Thread.sleep(2000);
+	FBSIGNUP FB=new FBSIGNUP(driver);
+	 Utility UT=new  Utility();
+	 
+	FB.EnterFirstName(UT.Utility1(1,1));
+	FB.EnterLastName(UT.Utility1(2, 1));
+	FB.EnterMobNo(UT.Utility1(3, 1));
+
+	
+	//Tester2
+	Thread.sleep(2000);
+	driver.get("https://www.facebook.com/");
+	driver.findElement(By.xpath("(//a[@role=\"button\"])[2]")).click();
+	Thread.sleep(2000);
+	FB.EnterFirstName(UT.Utility1(1,2));
+	FB.EnterLastName(UT.Utility1(2, 2));
+	FB.EnterMobNo(UT.Utility1(3, 2));
+	
+	//Tester3
+		Thread.sleep(2000);
+		driver.get("https://www.facebook.com/");
+		driver.findElement(By.xpath("(//a[@role=\"button\"])[2]")).click();
+		Thread.sleep(2000);
+		FB.EnterFirstName(UT.Utility1(1,3));
+		FB.EnterLastName(UT.Utility1(2, 3));
+		FB.EnterMobNo(UT.Utility1(3, 3));
+	}
+}
+
